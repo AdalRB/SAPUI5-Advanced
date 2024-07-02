@@ -1,0 +1,9 @@
+<mvc:View controllerName="alfa01.employeesv2.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content> 
+            <Text id="txt1" text="Hello World"/>
+        </content>
+    </Page>
+</mvc:View>
