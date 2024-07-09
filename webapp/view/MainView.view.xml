@@ -12,7 +12,7 @@
                        class="sapUiSmallMargin"/>
 
                 <Input id="inputEmployee" 
-                       value="{/EmployeeId}"
+                       value="{jsonCountries>/EmployeeId}"
                        maxLength="6" 
                        width="200px" 
                        class="sapUiSmallMarginEnd"
@@ -25,13 +25,13 @@
                        visible="true"/> 
 
                 <Select id="slCountry" 
-                        selectedKey="{/CountryKey}" 
+                        selectedKey="{jsonCountries>/CountryKey}" 
                         forceSelection="false" 
-                        items="{/ListCountry}" 
+                        items="{jsonCountries>/ListCountry}" 
                         visible="true">
                         
                     <items>
-                        <core:Item id="i1" key="{Key}" text="{Text}"/>
+                        <core:Item id="i1" key="{jsonCountries>Key}" text="{jsonCountries>Text}"/>
                     </items>
                 </Select>
 
@@ -47,42 +47,48 @@
                         press="onClearFilter" 
                         class="sapUiSmallMarginEnd"/>
             </HBox>
+
             <HBox id="HBox2">
                 <Panel id="panel1">
-                    <Table id="tableEmployee" items="{/employees}">
+                    <Button id="btnShowCity" text="{i18n>showCity}" visible="{jsonConfig>/visibleBtnShowCity}" press="onShowCity"/>
+                    <Button id="btnHideCity" text="{i18n>hideCity}" visible="{jsonConfig>/visibleBtnHideCity}" press="onHideCity"/>
+                    <Table id="tableEmployee" items="{jsonEmployees>/employees}">
                         <columns>
-                            <Column id="c1">
+                            <Column id="c1" visible="{jsonConfig>/visibleID}">
                                 <header>
                                     <Label id="l1" text="{i18n>tableId}"/>
                                 </header>
                             </Column>
-                            <Column id="c2">
+                            <Column id="c2" visible="{jsonConfig>/visibleName}">
                                 <header>
                                     <Label id="l2" text="{i18n>tableName}"/>
                                 </header>
                             </Column>
-                            <Column id="c3">
+                            <Column id="c3" visible="{jsonConfig>/visibleCountry}">
                                 <header>
                                     <Label id="l3" text="{i18n>tableCountry}"/>
                                 </header>
                             </Column>
-                            <Column id="c4">
+                            <Column id="c4" visible="{jsonConfig>/visibleCity}">
                                 <header>
                                     <Label id="l4" text="{i18n>tableCity}"/>
                                 </header>
                             </Column>
                         </columns>
                         <items>
-                            <ColumnListItem id="cl1" type="Active" press="showPostalCode">
+                            <ColumnListItem id="cl1" type="Active" press="showOrders">
                                 <cells>
-                                    <Label id="l5" text="{EmployeeID}"/>
-                                    <Label id="l6" text="{LastName}, {FirstName}"/>
-                                    <Label id="l7" text="{Country}"/>
-                                    <Label id="l8" text="{City}"/>
+                                    <Label id="l5" text="{jsonEmployees>EmployeeID}"/>
+                                    <Label id="l6" text="{jsonEmployees>LastName}, {jsonEmployees>FirstName}"/>
+                                    <Label id="l7" text="{jsonEmployees>Country}"/>
+                                    <Label id="l8" text="{jsonEmployees>City}"/>
                                 </cells>
                             </ColumnListItem>
                         </items>
                     </Table>
+                    <HBox id="ordersTable">
+                        
+                    </HBox>
                 </Panel>
             </HBox>
         </content>
