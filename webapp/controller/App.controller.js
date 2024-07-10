@@ -7,6 +7,7 @@ sap.ui.define(
   
       return BaseController.extend("alfa01.employeesv2.controller.App", {
         onInit: function() {
+          
         }
       });
     }

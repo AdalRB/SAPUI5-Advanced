@@ -1,0 +1,37 @@
+<mvc:View controllerName="alfa01.employeesv2.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="p1" showHeader="false">
+                    <content>
+                        <f:FlexibleColumnLayout id="fcl" backgroundDesign="Solid" layout="{jsonLayout>/ActiveKey}">
+                            <f:beginColumnPages>
+                                <mvc:XMLView id="masterEmployee" viewName="alfa01.employeesv2.view.MasterEmployee"></mvc:XMLView>
+                            </f:beginColumnPages>
+                            <f:midColumnPages>
+                                <mvc:XMLView id="detailEmployeeView" viewName="alfa01.employeesv2.view.EmployeeDetails"></mvc:XMLView>
+                            </f:midColumnPages>
+                            <f:endColumnPages>
+                                <Page id="p2">
+                                </Page>
+                            </f:endColumnPages>
+                        </f:FlexibleColumnLayout>
+                    </content>
+                    <footer>
+                        <Toolbar id="tb1">
+                            <Label id="l1" text="{i18n>label}" class="sapUiSmallMargin" ></Label>
+                            <Select id="s1" items="{jsonLayout>/Layout}" selectedKey="{jsonLayout>/ActiveKey}">
+                                <core:Item id="c1" key="{jsonLayout>Key}" text="{jsonLayout>Text}"></core:Item>
+                            </Select>
+                        </Toolbar>
+                    </footer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

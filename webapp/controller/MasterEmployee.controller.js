@@ -13,26 +13,6 @@ sap.ui.define([
         
         function onInit () {
             
-            var oView = this.getView();
-            // var i18nBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle()
-
-            var oJSONModelE = new sap.ui.model.json.JSONModel(); 
-            oJSONModelE.loadData("./localService/mockdata/Employees.json", false);
-            oView.setModel(oJSONModelE, "jsonEmployees");
-
-            var oJSONModelC = new sap.ui.model.json.JSONModel(); 
-            oJSONModelC.loadData("./localService/mockdata/Countries.json", false);
-            oView.setModel(oJSONModelC, "jsonCountries");
-
-            var oJSONModelConfig = new sap.ui.model.json.JSONModel({
-                visibleID: true,
-                visibleName: true,
-                visibleCountry: true,
-                visibleCity: false,
-                visibleBtnShowCity: true,
-                visibleBtnHideCity: false
-            }); 
-            oView.setModel(oJSONModelConfig, "jsonConfig")
         };
 
         function onFilter(){
@@ -177,7 +157,7 @@ sap.ui.define([
             this._oDialogOrders.close();
         };
                             
-        var Main = Controller.extend("alfa01.employeesv2.controller.MainView", {});
+        var Main = Controller.extend("alfa01.employeesv2.controller.MasterEmployee", {});
 
         Main.prototype.onValidate = function () {
             var inputEmployee = this.byId("inputEmployee");

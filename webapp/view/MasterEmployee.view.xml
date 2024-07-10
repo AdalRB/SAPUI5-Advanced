@@ -1,14 +1,11 @@
-<mvc:View controllerName="alfa01.employeesv2.controller.MainView"
+<mvc:View controllerName="alfa01.employeesv2.controller.MasterEmployee"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <Shell id="shell">
-        <App id="app">
-            <pages>
                 <Page id="page" title="{i18n>title}">
                     <content> 
-                        <HBox id="HBox1">
+                        <HBox id="HBox1" wrap="Wrap">
                             <Label id="labelEmployee" 
                                 labelFor="inputEmployee" 
                                 text="{i18n>labelEmployee}" 
@@ -53,7 +50,4 @@
                         <core:Fragment fragmentName="alfa01.employeesv2.fragment.TableEmployee" type="XML"/>
                     </content>
                 </Page>
-            </pages>
-        </App>
-    </Shell>
 </mvc:View>

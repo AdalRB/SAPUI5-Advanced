@@ -1,0 +1,11 @@
+<mvc:View controllerName="alfa01.employeesv2.controller.EmployeeDetails"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page id="p1" title="{i18n>employeeDetails}">
+        <Text id="t1" text="{jsonEmployee>LastName}, {jsonEmployee>FirstName}"></Text>
+    </Page>
+
+</mvc:View>
