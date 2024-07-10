@@ -12,7 +12,7 @@ sap.ui.define([
         "use strict";
         
         function onInit () {
-            
+            this._bus = sap.ui.getCore().getEventBus();
         };
 
         function onFilter(){
@@ -156,6 +156,11 @@ sap.ui.define([
         function onCloseOrders (){
             this._oDialogOrders.close();
         };
+
+        function showEmployee(oEvent){
+            var path = oEvent.getSource().getBindingContext("jsonEmployees").getPath();
+            this._bus.publish("flexible", "showEmployee", path);
+        };
                             
         var Main = Controller.extend("alfa01.employeesv2.controller.MasterEmployee", {});
 
@@ -181,6 +186,7 @@ sap.ui.define([
         Main.prototype.onHideCity = onHideCity;
         Main.prototype.showOrders = showOrders;
         Main.prototype.onCloseOrders = onCloseOrders;
+        Main.prototype.showEmployee = showEmployee;
 
         return Main;
     });

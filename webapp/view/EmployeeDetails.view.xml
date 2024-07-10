@@ -5,7 +5,47 @@
     xmlns:core="sap.ui.core">
 
     <Page id="p1" title="{i18n>employeeDetails}">
-        <Text id="t1" text="{jsonEmployee>LastName}, {jsonEmployee>FirstName}"></Text>
+        <Panel id="p2">
+            <FlexBox id="fb1" height="40px" alignContent="Center" justifyContent="Center">
+                <items>
+                    <Text id="t1" text="{jsonEmployees>LastName}, {jsonEmployees>FirstName}" class="boldText"/>
+                </items>
+            </FlexBox>
+            <FlexBox id="fb2" height="40px" alignContent="Start" justifyContent="SpaceBetween">
+                <items>
+                    <VBox id="vb1">
+                        <Text id="t2" text="{i18n>employeeID}" class="boldText sapUiTinyMarginEnd"/>
+                        <Text id="t3" text="{jsonEmployees>EmployeeID}"/>
+                    </VBox>
+                    <VBox id="vb2">
+                        <Text id="t4" text="{i18n>titleEmployee}" class="boldText"/>
+                        <Text id="t5" text="{jsonEmployees>Title}"/>
+                    </VBox>
+                </items>
+            </FlexBox>
+            <FlexBox id="fb3" alignItems="Start">
+                <items>
+                    <HBox id="hb1">
+                        <Text id="t6" text="{i18n>countryCode}" class="boldText sapUiTinyMarginEnd"/>
+                        <Text id="t7" text="{jsonEmployees>Country}"/>
+                        <layoutData>
+                            <FlexItemData id="fid1" growFactor="3"></FlexItemData>
+                        </layoutData>
+                    </HBox>
+                    <HBox id="hb2">
+                        <Text id="t8" text="{i18n>city}" class="boldText sapUiTinyMarginEnd"/>
+                        <Text id="t9" text="{jsonEmployees>City}"/>
+                        <layoutData>
+                            <FlexItemData id="fid2" growFactor="3"></FlexItemData>
+                        </layoutData>
+                    </HBox>
+                    <FlexBox id="fb4" direction="Row" alignItems="Start">
+                        <Text id="t10" text="{i18n>postalCode}" class="boldText sapUiTinyMarginEnd"/>
+                        <Text id="t11" text="{jsonEmployees>PostalCode}"/>
+                    </FlexBox>
+                </items>
+            </FlexBox>
+        </Panel>
     </Page>
 
 </mvc:View>
