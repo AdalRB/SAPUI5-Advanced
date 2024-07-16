@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
     <Dialog id="d1" title="{i18n>orders}">
         <content>
-            <Table id="t1" items="{jsonEmployees>Orders}" width="100%">
+            <Table id="t1" items="{odataNorthwind>Orders}" width="100%">
                 <columns>
                     <Column id="c1">
                         <header>
@@ -22,9 +22,9 @@
                 <items>
                     <ColumnListItem id="cl1" >
                         <cells>
-                            <Label id="l4" text="{jsonEmployees>OrderID}"/>
-                            <Label id="l5" text="{jsonEmployees>Freight}"/>
-                            <Label id="l6" text="{jsonEmployees>ShipAddress}"/>
+                            <Label id="l4" text="{odataNorthwind>OrderID}"/>
+                            <Label id="l5" text="{odataNorthwind>Freight}"/>
+                            <Label id="l6" text="{odataNorthwind>ShipAddress}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
