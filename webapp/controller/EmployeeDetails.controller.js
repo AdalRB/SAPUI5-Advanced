@@ -1,8 +1,8 @@
 sap.ui.define([
-    'sap/ui/core/mvc/Controller',
+    "alfa01/employeesv2/controller/Base.controller",
     'alfa01/employeesv2/model/formatter',
     'sap/m/MessageBox'
-], function(Controller, formatter, MessageBox) {
+], function(Base, formatter, MessageBox) {
 
         function onInit (){
             this._bus = sap.ui.getCore().getEventBus();
@@ -102,15 +102,7 @@ sap.ui.define([
             context.getModel().refresh();
         };
 
-        function toOrderDetails(oEvent){
-            var orderID = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("RouteOrderDetails",{
-                OrderID : orderID
-            });
-        };
-
-        var Main = Controller.extend("alfa01.employeesv2.controller.EmployeeDetails",{});
+        var Main = Base.extend("alfa01.employeesv2.controller.EmployeeDetails",{});
         Main.prototype.onInit = onInit;
         Main.prototype.onCreateIncidence = onCreateIncidence;
         Main.prototype.Formatter = formatter;
@@ -119,7 +111,6 @@ sap.ui.define([
         Main.prototype.updateIncidenceCreationDate = updateIncidenceCreationDate;
         Main.prototype.updateIncidenceReason = updateIncidenceReason;
         Main.prototype.updateIncidenceType = updateIncidenceType;
-        Main.prototype.toOrderDetails = toOrderDetails;
         
         return Main;
     
