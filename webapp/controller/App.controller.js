@@ -1,15 +1,11 @@
-sap.ui.define(
-    [
-        "sap/ui/core/mvc/Controller"
-    ],
-    function(BaseController) {
-      "use strict";
-  
-      return BaseController.extend("alfa01.employeesv2.controller.App", {
-        onInit: function() {
-          
-        }
-      });
-    }
-  );
+sap.ui.define([
+  'sap/ui/core/mvc/Controller',
+], function(Controller) {
+  return Controller.extend("alfa01.employeesv2.controller.App",{
+      onInit : function(){
+
+      }
+  });  
+});
+
   
