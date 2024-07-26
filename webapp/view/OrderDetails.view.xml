@@ -1,4 +1,4 @@
-<mvc:View controllerName="alfa01.employeesv2.controller.OrderDetails"
+<mvc:View xmlns:upload="sap.m.upload" controllerName="alfa01.employeesv2.controller.OrderDetails"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true"
     xmlns="sap.m"
@@ -56,7 +56,48 @@
                         <Button id="btn2" text="{i18n>clear}" press="onClearSignature" class="sapUiTinyMarginBegin"></Button>
                     </FlexBox>
                 </l:Grid>
+                <!-- <upload:UploadSet id="uploadCollection"
+                                    maxFileNameLength="55"
+                                    maxFileSize="10"
+                                    multiple="true"
+                                    sameFilenameAllowed="true"
+                                    instantUpload="true"
+                                    uploadUrl="/sap/opu/odata/sap/YSAPUI5_SRV_01/FilesSet"
+                                    uploadCompleted="onFileUploadComplete"
+                                    beforeUploadStarts="onFileBeforeUpload"
+                                    afterItemRemoved="onFileDeleted">                
+                </upload:UploadSet> -->
+            </Panel>
+            <Panel id="p2">
+                <headerToolbar>
+                    <Toolbar id="tb2">
+                        <ToolbarSpacer id="tbs2"></ToolbarSpacer>
+                        <Button id="btn4" icon="sap-icon://download" press="onDownloadFile"/>
+                    </Toolbar>
+                </headerToolbar>
+                <content>
+                    <upload:UploadSet id="uploadCollection"
+                                    maxFileNameLength="55"
+                                    maxFileSize="10"
+                                    multiple="true"
+                                    sameFilenameAllowed="true"
+                                    instantUpload="true"
+                                    uploadUrl="/sap/opu/odata/sap/YSAPUI5_SRV_01/FilesSet"
+                                    uploadCompleted="onFileUploadComplete"
+                                    beforeUploadStarts="onFileBeforeUpload"
+                                    afterItemRemoved="onFileDeleted">                
+                    </upload:UploadSet>
+                </content>
+            </Panel>
+            <Panel id="p3" headerText="{i18n>orderProducts}">
+                <List id="list1" items="{path: 'odataNorthwind>Order_Details', parameters:{expand : 'Product'}, factory:'.factoryOrderDetails'}"/>
             </Panel>
         </content>
+        <footer>
+            <Toolbar id="tb1">
+                <ToolbarSpacer id="ts1"></ToolbarSpacer>
+                <Button id="btn3" text="{i18n>saveSignature}" press="onSaveSignature"></Button>
+            </Toolbar>
+        </footer>
     </Page>
 </mvc:View>
